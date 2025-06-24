@@ -1,0 +1,73 @@
+    <h3 class="page-title">旅行规划助手-DEMO</h3>
+
+<div class="travel-plan-container">
+  <div class="">
+    <h4>个人信息表单</h4>
+    <form [formGroup]="planForm" (ngSubmit)="plan()">
+    <div class="md-container">
+      <input class="md-input" id="start" type="text" formControlName="start">
+      @if(planForm.hasError('required', 'start')) {
+        <div class="error-message">起点信息必填</div>
+      }
+      <label class="md-input-label" for="start">起点</label>
+    </div>
+
+
+    <div class="md-container">
+      <input class="md-input" id="destination" type="text" formControlName="destination">
+      @if(planForm.hasError('required', 'destination')) {
+        <div class="error-message">终点信息必填</div>
+      }
+      <label class="md-input-label" for="destination">终点</label>
+    </div>
+
+    <div class="md-container">
+      
+      <input class="md-input" id="gender" type="text" formControlName="gender">
+      <label class="md-input-label" for="gender">性别</label>
+      @if(planForm.hasError('required', 'gender')) {
+        <div class="error-message">性别信息必填</div>
+      }
+      @if(planForm.hasError('pattern', 'gender')) {
+        <div class="error-message">性别填写错误</div>
+      }
+    </div>
+    <div class="md-container">
+      <input class="md-input" id="age" type="number" formControlName="age">
+      <label class="md-input-label" for="age">年龄</label>
+      @if(planForm.hasError('required', 'age')) {
+        <div class="error-message">年龄必填</div>
+      }
+    </div>
+    @if (inprocess) {
+      <button class="md-btn" type="submit">计划制定中...</button>
+    } @else {
+      <button class="md-btn" type="submit">开始制定计划</button>
+    }
+    </form>
+  </div>
+
+  @if (success) {
+    <div>
+      <h4>计划详情</h4>
+      <div>
+        <div class="detail-item">
+          <span class="detail-label">计划总览</span>
+          <span>{{planDetail.reason}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">交通工具</span>
+          <span>{{planDetail.vehicle}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">出行步骤</span>
+          @for(step of planDetail.steps; track step) {
+            <div>
+              <div>{{step}}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,118 @@
+.page-title {
+  text-align: center;
+}
+.travel-plan-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.error-message {
+  font-size: 12px;
+  color: red;
+}
+
+.md-container {
+  position: relative;
+  margin: 24px 0;
+  width: 300px;
+}
+
+.md-input {
+  width: 100%;
+  height: 56px;
+  padding: 16px 16px 0; /* 顶部留空给浮动标签 */
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.md-input-label {
+  position: absolute;
+  top: 20px; /* 初始位置居中 */
+  left: 16px;
+  color: #757575;
+  pointer-events: none; /* 允许点击穿透到输入框 */
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+
+.md-input:focus {
+    border-color: #6200ee; /* Material 主题色 */
+}
+
+.md-input:focus + .md-input-label, .md-input:not(:placeholder-shown) + .md-input-label {
+    top: 6px;
+    font-size: 12px;
+    color: #6200ee;
+    background-color: white; /* 防止与输入内容重叠 */
+    padding: 0 4px;
+}
+
+/* 动态底栏动画 */
+.md-input::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #6200ee;
+    transition: width 0.3s ease;
+}
+
+.md-input:focus::after {
+    width: 100%; /* 获得焦点时展开底栏 */
+}
+
+.md-btn {
+  padding: 12px 24px;                  /* 舒适的内边距 */
+  font-family: 'Roboto', sans-serif;   /* Material标准字体 */
+  font-weight: 500;                    /* 中等字重 */
+  font-size: 14px;
+  text-transform: uppercase;          /* 英文大写（中文无影响）*/
+  color: #fff;                         /* 文字颜色 */
+  background-color: #6200ee;          /* 主色（紫色）*/
+  border: none;                        /* 去除默认边框 */
+  border-radius: 4px;                  /* 圆角 */
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.12),       /* 基础阴影 */
+    0 1px 2px rgba(0,0,0,0.24);       /* 加深层次感 */
+  cursor: pointer;
+  outline: none;
+  transition: 
+    background-color 0.3s, 
+    box-shadow 0.3s;                   /* 平滑过渡效果 */
+}
+
+/* 悬停状态：提升阴影高度 */
+.md-btn:hover {
+  background-color: #7c4dff;           /* 主色变亮 */
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.16), 
+    0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* 点击状态：模拟按压效果 */
+.md-btn:active {
+  background-color: #3700b3;           /* 主色加深 */
+  box-shadow: 
+    0 1px 3px rgba(0,0,0,0.12), 
+    0 1px 2px rgba(0,0,0,0.24);
+}
+
+.detail-item {
+  margin-bottom: 24px;
+  .detail-label {
+    color: #757575;
+    font-weight: 500;
+    font-size: 18px;
+    padding-right: 8px;
+
+  }
+}

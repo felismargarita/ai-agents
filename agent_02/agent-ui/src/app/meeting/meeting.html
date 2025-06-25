@@ -1,0 +1,17 @@
+<div>
+  <h2>智能多模态会议纪要 - DEMO</h2>
+  <label for="content" class="meeting-content-label">会议内容</label>
+  <input id="content" class="meeting-content-input" placeholder="填入详情" [formControl]="meetingContent" />
+  @if (!success) {
+    <div class="submit-btn-wrapper">
+      @if (processing) {
+        <button class="md-btn">正在生成...</button>
+      } @else {
+        <button class="md-btn" (click)="submit()">生成会议纪要</button>
+      }
+    </div>
+  }
+    @if (markdownText) {
+      <markdown [data]="markdownText"></markdown>
+    }
+</div>

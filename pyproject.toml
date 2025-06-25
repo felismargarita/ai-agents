@@ -1,0 +1,12 @@
+[project]
+name = "ai-agents"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dashscope>=1.23.6",
+    "fastapi>=0.115.13",
+    "fastmcp>=2.9.0",
+    "openai>=1.91.0",
+]

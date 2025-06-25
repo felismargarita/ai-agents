@@ -1,0 +1,10 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dashscope>=1.23.6",
+    "fastmcp>=2.9.0",
+]

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Software Solutions Provider
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Software Solutions Provider</h1>
+  </header>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us 😊</a>
+  </nav>
+  <main>
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Custom Software Development</h3>
+          <p>Tailored solutions to meet your unique business needs.</p>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>Responsive and scalable web applications.</p>
+        </div>
+        <div class="card">
+          <h3>Mobile App Development</h3>
+          <p>Cross-platform for all kinds of devices.</p>
+        </div>
+      </div>
+    </section>
+    <section id="solutions">
+      <h2>Our Solutions</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Enterprise Solutions</h3>
+          <p>Streamline your business processes with our enterprise-grade solutions.</p>
+        </div>
+        <div class="card">
+          <h3>Cloud Solutions</h3>
+          <p>Leverage the power of cloud computing for your business.</p>
+        </div>
+        <div class="card">
+          <h3>AI & Machine Learning</h3>
+          <p>Harness the power of AI to drive innovation.</p>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>We are a leading software solutions provider dedicated to delivering high-quality, innovative solutions to businesses of all sizes.</p>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Get in touch with us to discuss your project requirements.</p>
+    </section>
+  </main>
+  <footer>
+    <h2>Special Offers for Our Clients</h2>
+    <div class="offers">
+      <div class="offer-card">
+        <h3>Startups</h3>
+        <p>20% discount on all services for the first year.</p>
+      </div>
+      <div class="offer-card">
+        <h3>Small Businesses</h3>
+        <p>15% discount on custom software development.</p>
+      </div>
+      <div class="offer-card">
+        <h3>Enterprise</h3>
+        <p>Free consultation and 10% discount on cloud solutions.</p>
+      </div>
+      <div class="offer-card">
+        <h3>Non-Profits</h3>
+        <p>Special pricing and flexible payment options.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+
+document.addEventListener('click', (event) => {
+  const path = event.composedPath();
+  const selectorPath = path.map(el => {
+    if (el === window || el === document) return null;
+    if (el.id) return `#${el.id}`;
+    if (el.className) return `.${el.className.split(' ')[0]}`;
+    return el.tagName.toLowerCase();
+  }).filter(Boolean).reverse().join(' > ');
+
+  const targetElement = event.target; // 实际被点击的底层元素
+  const textContent = targetElement.textContent; // 获取所有文本（含隐藏文本）
+  const visibleText = targetElement.innerText; // 仅获取可见文本（受CSS影响）
+
+
+  window.parent.postMessage({
+    selectorPath,
+    textContent
+  }, "http://localhost:5173"); 
+});
+</script>
+</html>

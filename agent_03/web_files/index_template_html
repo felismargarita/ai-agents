@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      <!---LLM PLACEHOLDER REPLACEMENT HERE ONLY--->
+    </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!---LLM PLACEHOLDER REPLACEMENT HERE ONLY--->
+</body>
+<script>
+
+document.addEventListener('click', (event) => {
+  const path = event.composedPath();
+  const selectorPath = path.map(el => {
+    if (el === window || el === document) return null;
+    if (el.id) return `#${el.id}`;
+    if (el.className) return `.${el.className.split(' ')[0]}`;
+    return el.tagName.toLowerCase();
+  }).filter(Boolean).reverse().join(' > ');
+
+  const targetElement = event.target; // 实际被点击的底层元素
+  const textContent = targetElement.textContent; // 获取所有文本（含隐藏文本）
+  const visibleText = targetElement.innerText; // 仅获取可见文本（受CSS影响）
+
+
+  window.parent.postMessage({
+    selectorPath,
+    textContent
+  }, "http://localhost:5173"); 
+});
+</script>
+</html>

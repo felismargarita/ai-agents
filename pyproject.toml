@@ -5,8 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "aiofiles>=24.1.0",
     "dashscope>=1.23.6",
     "fastapi>=0.115.13",
     "fastmcp>=2.9.0",
     "openai>=1.91.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "agent_03/agent",
+    "agent_03/mcp_server",
 ]

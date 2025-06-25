@@ -1,4 +1,4 @@
-# 🌍 AI Travel Planner · 智能出行规划助手  - DEMO
+# 🚗  AI Travel Planner · 智能出行规划助手  - DEMO
 **基于 DeepSeek 的个性化旅行规划工具** · 根据用户画像（年龄、性别）、起止点与天气，生成安全合理的独自出行计划。 
 
 
